@@ -396,7 +396,7 @@ def main():
         
         # API Key input
         api_key = st.text_input("Enter your Gemini API Key:", type="password", 
-                               value="AIzaSyAEdj0FwtMdMyqiNAXs6Gz0HrZ0KIe6s4Q" if st.session_state.api_key_set else "")
+                               value=os.getenv("GEMINI_API_KEY", "") if st.session_state.api_key_set else "")
         
         if api_key and not st.session_state.api_key_set:
             if st.button("Initialize System"):
